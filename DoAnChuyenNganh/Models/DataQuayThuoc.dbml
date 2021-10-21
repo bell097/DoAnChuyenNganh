@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyNhaThuoc" Class="DataQuayThuocDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ThuongAnh\SQLEXPRESS;Initial Catalog=QuanLyNhaThuoc;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QuayThuocConnection" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Bill" Member="Bills">
+    <Type Name="Bill">
+      <Column Name="bill_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bill_total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="guest_phone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="guest_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Bill_BillDetail" Member="BillDetails" ThisKey="bill_id" OtherKey="bill_id" Type="BillDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BillDetail" Member="BillDetails">
+    <Type Name="BillDetail">
+      <Column Name="billdetail_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bill_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Bill_BillDetail" Member="Bill" ThisKey="bill_id" OtherKey="bill_id" Type="Bill" IsForeignKey="true" />
+      <Association Name="Product_BillDetail" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Brand" Member="Brands">
+    <Type Name="Brand">
+      <Column Name="brand_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="brand_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Brand_Product" Member="Products" ThisKey="brand_id" OtherKey="brand_id" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="category_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Category_SmallCategory" Member="SmallCategories" ThisKey="category_id" OtherKey="category_id" Type="SmallCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Distributor" Member="Distributors">
+    <Type Name="Distributor">
+      <Column Name="dis_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dis_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Distributor_StockIn" Member="StockIns" ThisKey="dis_id" OtherKey="dis_id" Type="StockIn" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Guest" Member="Guests">
+    <Type Name="Guest">
+      <Column Name="guest_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="guest_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Origin" Member="Origins">
+    <Type Name="Origin">
+      <Column Name="origin_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="origin_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Origin_Product" Member="Products" ThisKey="origin_id" OtherKey="origin_id" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="product_id" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="product_name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="product_user" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="product_uses" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="product_treatment" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="product_number" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="product_warning" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="brand_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="origin_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="smallcategory_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="product_image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="product_format" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="product_packing" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="prescription_drugs" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="product_imprice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="product_saleprice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="product_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="product_quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_BillDetail" Member="BillDetails" ThisKey="product_id" OtherKey="product_id" Type="BillDetail" />
+      <Association Name="Product_StockinDetail" Member="StockinDetails" ThisKey="product_id" OtherKey="product_id" Type="StockinDetail" />
+      <Association Name="Brand_Product" Member="Brand" ThisKey="brand_id" OtherKey="brand_id" Type="Brand" IsForeignKey="true" />
+      <Association Name="Origin_Product" Member="Origin" ThisKey="origin_id" OtherKey="origin_id" Type="Origin" IsForeignKey="true" />
+      <Association Name="SmallCategory_Product" Member="SmallCategory" ThisKey="smallcategory_id" OtherKey="smallcategory_id" Type="SmallCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sick" Member="Sicks">
+    <Type Name="Sick">
+      <Column Name="sick_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sick_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sick_type" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sick_reason" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sick_symptom" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sick_risk" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sick_treatment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SmallCategory" Member="SmallCategories">
+    <Type Name="SmallCategory">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="smallcategory_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="smallcategory_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SmallCategory_Product" Member="Products" ThisKey="smallcategory_id" OtherKey="smallcategory_id" Type="Product" />
+      <Association Name="Category_SmallCategory" Member="Category" ThisKey="category_id" OtherKey="category_id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockIn" Member="StockIns">
+    <Type Name="StockIn">
+      <Column Name="stockin_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dis_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="total" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="StockIn_StockinDetail" Member="StockinDetails" ThisKey="stockin_id" OtherKey="stockin_id" Type="StockinDetail" />
+      <Association Name="Distributor_StockIn" Member="Distributor" ThisKey="dis_id" OtherKey="dis_id" Type="Distributor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockinDetail" Member="StockinDetails">
+    <Type Name="StockinDetail">
+      <Column Name="stockindetail_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="stockin_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="stockin_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="impirce" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Product_StockinDetail" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+      <Association Name="StockIn_StockinDetail" Member="StockIn" ThisKey="stockin_id" OtherKey="stockin_id" Type="StockIn" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
