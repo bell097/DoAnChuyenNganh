@@ -12,7 +12,7 @@ namespace DoAnChuyenNganh.Controllers
     
     public class HomeController : Controller
     {
-        DataQuayThuocDataContext db = new DataQuayThuocDataContext();
+        ShopModelContext db = new ShopModelContext();
         public ActionResult Index()
         {
             return View();

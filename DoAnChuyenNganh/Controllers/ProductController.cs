@@ -14,7 +14,7 @@ namespace DoAnChuyenNganh.Controllers
     public class ProductController : Controller
     {
         // GET: Shop
-        DataQuayThuocDataContext db = new DataQuayThuocDataContext();
+        ShopModelContext db = new ShopModelContext();
         public ActionResult ViewProduct(string SearchString, string currentFilter, int? page)
         {
             var listProduct = new List<Product>();

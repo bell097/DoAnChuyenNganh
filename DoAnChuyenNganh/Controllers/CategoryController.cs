@@ -10,7 +10,8 @@ namespace DoAnChuyenNganh.Controllers
 {
     public class CategoryController : Controller
     {
-        DataQuayThuocDataContext db = new DataQuayThuocDataContext();
+        
+        ShopModelContext db = new ShopModelContext();
       
         public ActionResult ViewCategory(int Id)
         {
