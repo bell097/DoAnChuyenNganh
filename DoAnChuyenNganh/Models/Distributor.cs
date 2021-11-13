@@ -1,4 +1,4 @@
-namespace DoAnChuyenNganh.Models
+﻿namespace DoAnChuyenNganh.Models
 {
     using System;
     using System.Collections.Generic;
@@ -20,6 +20,7 @@ namespace DoAnChuyenNganh.Models
 
         [Required]
         [StringLength(100)]
+        [Display(Name ="Nhà phân phối")]
         public string dis_name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

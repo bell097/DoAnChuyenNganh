@@ -14,8 +14,8 @@ namespace DoAnChuyenNganh.Models
 
         public int stockin_id { get; set; }
 
-        [Required]
-        [StringLength(15)]
+        //[Required]
+        //[StringLength(15)]
         public string product_id { get; set; }
 
         public int stockin_quantity { get; set; }
@@ -25,5 +25,7 @@ namespace DoAnChuyenNganh.Models
         public virtual Product Product { get; set; }
 
         public virtual StockIn StockIn { get; set; }
+
+        public string productname;
     }
 }

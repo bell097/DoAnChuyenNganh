@@ -98,6 +98,7 @@ namespace DoAnChuyenNganh.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.brand_id = new SelectList(db.Brands, "brand_id", "brand_name", product.brand_id);
             ViewBag.smallcategory_id = new SelectList(db.SmallCategories, "smallcategory_id", "smallcategory_name", product.smallcategory_id);
             ViewBag.origin_id = new SelectList(db.Origins, "origin_id", "origin_name", product.origin_id);
@@ -110,16 +111,38 @@ namespace DoAnChuyenNganh.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "product_id,product_name,brand_id,origin_id,smallcategory_id,product_image,product_packing,product_format,product_user,product_uses,product_treatment,product_number,product_warning,product_description,prescription_drugs,product_imprice,product_saleprice,product_status,product_quantity")] Product product)
-        //public ActionResult Edit(Product product)
+        public ActionResult Edit(Product product, HttpPostedFileBase file)
+        
         {
             if (ModelState.IsValid)
             {
-
+                if(file != null)
+                {
+                    //lưu tên file
+                    var fileName = Path.GetFileName(file.FileName);
+                    //lưu dường dẫn
+                    var path = Path.Combine(Server.MapPath("~/Assets/images/"), fileName);
+                    file.SaveAs(path);
+                    //luu vao db
+                    product.product_image = fileName;
+                    db.Products.Add(product);
+                    //db.SaveChanges();
+                }
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ////lưu tên file
+            //var fileName = Path.GetFileName(file.FileName);
+            ////lưu dường dẫn
+            //var path = Path.Combine(Server.MapPath("~/Assets/images/"), fileName);
+            //file.SaveAs(path);
+
+            ////luu vao db
+            //product.product_image = fileName;
+            //db.Products.Add(product);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
             ViewBag.brand_id = new SelectList(db.Brands, "brand_id", "brand_name", product.brand_id);
             ViewBag.smallcategory_id = new SelectList(db.SmallCategories, "smallcategory_id", "smallcategory_name", product.smallcategory_id);
             ViewBag.origin_id = new SelectList(db.Origins, "origin_id", "origin_name", product.origin_id);

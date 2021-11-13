@@ -22,10 +22,10 @@
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Mã danh mục")]
+        [Display(Name = "Danh mục")]
         public string smallcategory_name { get; set; }
 
-        [Display(Name = "Danh mục")]
+        //[Display(Name = "Danh mục")]
         public virtual Category Category { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

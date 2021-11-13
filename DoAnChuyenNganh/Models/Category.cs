@@ -16,7 +16,7 @@
         }
 
         [Key]
-        [Display(Name = "Mã danh mục lớn")]
+        [Display(Name ="Mã danh mục lón")]
         public int category_id { get; set; }
 
         [Required]

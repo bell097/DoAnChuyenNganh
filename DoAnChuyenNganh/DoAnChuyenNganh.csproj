@@ -179,12 +179,18 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DistributorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OriginsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SmallCategoriesController.cs" />
+    <Compile Include="Controllers\StockinDetailsController.cs" />
+    <Compile Include="Controllers\StockInsController.cs" />
     <Compile Include="Controllers\ThankController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2780,7 +2786,24 @@
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Admin\Details.cshtml" />
-    <Content Include="Views\Admin\View.cshtml" />
+    <Content Include="Views\Brands\Index.cshtml" />
+    <Content Include="Views\Brands\Create.cshtml" />
+    <Content Include="Views\Brands\Edit.cshtml" />
+    <Content Include="Views\Brands\Delete.cshtml" />
+    <Content Include="Views\Origins\Index.cshtml" />
+    <Content Include="Views\Origins\Create.cshtml" />
+    <Content Include="Views\Origins\Edit.cshtml" />
+    <Content Include="Views\Origins\Delete.cshtml" />
+    <Content Include="Views\SmallCategories\Index.cshtml" />
+    <Content Include="Views\SmallCategories\Create.cshtml" />
+    <Content Include="Views\SmallCategories\Edit.cshtml" />
+    <Content Include="Views\SmallCategories\Delete.cshtml" />
+    <Content Include="Views\Distributors\Index.cshtml" />
+    <Content Include="Views\Distributors\Create.cshtml" />
+    <Content Include="Views\Distributors\Edit.cshtml" />
+    <Content Include="Views\Distributors\Delete.cshtml" />
+    <Content Include="Views\StockIns\Index.cshtml" />
+    <Content Include="Views\StockinDetails\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

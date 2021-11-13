@@ -4,14 +4,15 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+    
 
-<h2>Create</h2>
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 
-@using (Html.BeginForm("Create","Admin",FormMethod.Post,new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-@Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+<div class="form-horizontal">`
     <h4>Product</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -22,7 +23,6 @@
             @Html.ValidationMessageFor(model => model.product_id, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(model => model.product_name, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -48,12 +48,12 @@
     </div>
 
     <div class="form-group">
-            @Html.LabelFor(model => model.smallcategory_id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("smallcategory_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.smallcategory_id, "", new { @class = "text-danger" })
-            </div>
+        @Html.LabelFor(model => model.smallcategory_id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("smallcategory_id", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.smallcategory_id, "", new { @class = "text-danger" })
         </div>
+    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.product_image, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -120,15 +120,35 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div id="editor">
         @Html.LabelFor(model => model.product_description, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextAreaFor(model => model.product_description, new { @class = "ckeditor" })
-            @*@Html.EditorFor(model => model.product_description, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.EditorFor(model => model.product_description, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.product_description, "", new { @class = "text-danger" })
         </div>
     </div>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.product_description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div id="editor" @Html.TextAreaFor(model => model.product_description, new { @class = "ckeditor" })>
+                @Html.ValidationMessageFor(model => model.product_description, "", new { @class = "text-danger" })
+            </div>
 
+            <script>
+                ClassicEditor
+                    .create(document.querySelector('#editor'))
+                    .catch(error => {
+                        console.error(error);
+                    });
+            </script>
+        </div>*@
     <div class="form-group">
         @Html.LabelFor(model => model.prescription_drugs, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -175,16 +195,17 @@
         </div>
     </div>
 </div>
-}
-@if (ViewBag.Success == true)
-{
-    <span>Success</span>}
+    }
+    @if (ViewBag.Success == true)
+    {
+        <span>Success</span>}
 
-<div>
-    @Html.ActionLink("Quay lại", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Quay lại", "Index")
+    </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/ckeditor")
+    }
 
