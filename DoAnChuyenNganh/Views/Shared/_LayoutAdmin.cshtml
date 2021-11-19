@@ -56,37 +56,44 @@
 
                         <li class="nav-item">
                             <a href="/SmallCategories/Index" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                                <i class="fas fa-clipboard-list fa-lg"></i>
                                 <p>Danh mục</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Brands/Index" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
+
+                                <i class="fas fa-tags"></i>
                                 <p>Thương hiệu</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Admin/Index" class="nav-link">
-                                <i class="nav-icon fas fa-columns"></i>
+                                <i class="fas fa-capsules fa-lg"></i>
                                 <p>Sản phẩm</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Origins/Index" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="fas fa-globe fa-lg"></i>
                                 <p>Xuất xứ</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Distributors/Index" class="nav-link">
-                                <i class="nav-icon fas fa-envelope"></i>
+                                <i class="fas fa-truck "></i>
                                 <p>Nhà phân phối</p>
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/StockIns/Index" class="nav-link">
+                                <i class="fas fa-warehouse "></i>
+                                <p>Nhập kho</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/Bills/Index" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
+                                <i class="fas fa-file-invoice-dollar fa-lg"></i>
                                 <p>Hóa đơn</p>
                             </a>
                         </li>
@@ -174,13 +181,15 @@
 <script src="~/AdminLTE-3.1.0/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="~/AdminLTE-3.1.0/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="~/AdminLTE-3.1.0/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<script src="~/Scripts/ckeditor/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
 <!-- AdminLTE App -->
 <script src="~/AdminLTE-3.1.0/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="~/AdminLTE-3.1.0/dist/js/demo.js"></script>
+
 <!-- Page specific script -->
-<script>$(function () {
+<script>
+    $(function () {
         $("#example1").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]

@@ -37,30 +37,30 @@ namespace DoAnChuyenNganh.Controllers
             return View(stockIn);
         }
 
-        // GET: StockIns/Create
-        //public ActionResult Create()
-        //{
-        //    ViewBag.dis_id = new SelectList(db.Distributors, "dis_id", "dis_name");
-        //    return View();
-        //}
+        //GET: StockIns/Create
+        public ActionResult Create()
+        {
+            ViewBag.dis_id = new SelectList(db.Distributors, "dis_id", "dis_name");
+            return View();
+        }
 
-        //// POST: StockIns/Create
-        //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "stockin_id,dis_id,date,total")] StockIn stockIn)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.StockIns.Add(stockIn);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
+        // POST: StockIns/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "stockin_id,dis_id,date,total")] StockIn stockIn)
+        {
+            if (ModelState.IsValid)
+            {
+                db.StockIns.Add(stockIn);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-        //    ViewBag.dis_id = new SelectList(db.Distributors, "dis_id", "dis_name", stockIn.dis_id);
-        //    return View(stockIn);
-        //}
+            ViewBag.dis_id = new SelectList(db.Distributors, "dis_id", "dis_name", stockIn.dis_id);
+            return View(stockIn);
+        }
 
         //// GET: StockIns/Edit/5
         //public ActionResult Edit(int? id)

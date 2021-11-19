@@ -1,4 +1,4 @@
-namespace DoAnChuyenNganh.Models
+﻿namespace DoAnChuyenNganh.Models
 {
     using System;
     using System.Collections.Generic;
@@ -16,13 +16,15 @@ namespace DoAnChuyenNganh.Models
         }
 
         [Key]
+        [Display(Name ="Mã nhập kho")]
         public int stockin_id { get; set; }
-
+        [Display(Name ="Nhà phân phối")]
         public int dis_id { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name ="Ngày nhập")]
         public DateTime date { get; set; }
-
+        [Display(Name ="Tổng tiền")]
         public double total { get; set; }
 
         public virtual Distributor Distributor { get; set; }

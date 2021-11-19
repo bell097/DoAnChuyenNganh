@@ -70,7 +70,7 @@ namespace DoAnChuyenNganh.Controllers
             {
                 db.StockinDetails.Add(stockinDetail);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","StockIns");
             }
 
             ViewBag.product_id = new SelectList(db.Products, "product_id", "product_name", stockinDetail.product_id);

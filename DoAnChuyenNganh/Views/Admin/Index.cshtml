@@ -29,6 +29,7 @@
                                     <th>
                                         @Html.DisplayName("Hình ảnh")
                                     </th>
+                                    @*<th>Trạng thái</th>*@
                                     @*<th>
                                         @Html.DisplayNameFor(model => model.product_format)
                                     </th>
@@ -60,11 +61,19 @@
                                         <img src="~/Assets/images/@item.product_image" width="95" />                                    
                                     </td>
                                     
+                                    @*<td><a href="#" class="btn-active"data-id="@item.product_id">@(item.product_status ? "Còn bán" : "Đã ngưng bán")</a></td>*@
+                                    
                                     <td>
                                         <a class='btn btn-default btn-sm' style='margin-left:5px' href="/Admin/Edit/@item.product_id"><i class='fa fa-edit'></i>Sửa</a>
                                         <a class='btn btn-danger btn-sm' style='margin-left:5px' href="/Admin/Delete/@item.product_id"><i class='fa fa-trash'></i>Xóa</a>
-                                        <a class='btn btn-outline-info' style='margin-left:5px' href="/Admin/Details/@item.product_id"><i class='fa fa-info'></i>Chi tiết</a>
+                                        <a class='btn btn-outline-info btn-sm' style='margin-left:5px' href="/Admin/Details/@item.product_id"><i class='fa fa-info'></i>Chi tiết</a>
 
+                                        @*@Ajax.ActionLink("Xóa","Delete", new { @id = item.product_id},new AjaxOptions
+                                   {
+                                       Confirm ="Bạn có muốn xóa sản phẩm",
+                                       OnComplete ="$('#row_"+item.product_id +"').remove()",
+                                       HttpMethod = "Delete"
+                                   })*@
                                     </td>
 
                                 </tr>

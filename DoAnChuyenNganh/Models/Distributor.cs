@@ -16,6 +16,7 @@
         }
 
         [Key]
+        [Display(Name = "Nhà phân phối")]
         public int dis_id { get; set; }
 
         [Required]

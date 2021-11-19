@@ -220,4 +220,6 @@ C:\Users\ASUS\Documents\GitHub\DoAnChuyenNganh\DoAnChuyenNganh\obj\Debug\DoAnChu
 C:\Users\ASUS\Documents\GitHub\DoAnChuyenNganh\DoAnChuyenNganh\obj\Debug\DoAnChuyenNganh.csproj.CopyComplete
 C:\Users\ASUS\Documents\GitHub\DoAnChuyenNganh\DoAnChuyenNganh\obj\Debug\DoAnChuyenNganh.dll
 C:\Users\ASUS\Documents\GitHub\DoAnChuyenNganh\DoAnChuyenNganh\obj\Debug\DoAnChuyenNganh.pdb
+C:\Users\ASUS\Documents\GitHub\DoAnChuyenNganh\DoAnChuyenNganh\bin\CKFinder.dll
+C:\Users\ASUS\Documents\GitHub\DoAnChuyenNganh\DoAnChuyenNganh\bin\CKFinder.pdb
 C:\Users\ASUS\Documents\GitHub\DoAnChuyenNganh\DoAnChuyenNganh\obj\Debug\DoAnChuyenNganh.csproj.AssemblyReference.cache

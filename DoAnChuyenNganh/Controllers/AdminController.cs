@@ -186,5 +186,10 @@ namespace DoAnChuyenNganh.Controllers
             }
             base.Dispose(disposing);
         }
+        //public JsonResult ChangeStatus(string id)
+        //{
+        //    var user = db.Products.Find(id);
+            
+        //}
     }
 }
